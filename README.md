@@ -1,6 +1,6 @@
 
 
-= Changes =
+### Changes 
 
   * Progressive processing.
   * More compatible with existing implementations.
@@ -10,13 +10,13 @@
 
 ----
 
-= Quick-start Guide =
+# Quick-start Guide 
 
-== Hashers ==
+## Hashers 
 
-=== The Hasher Algorithms ===
+### The Hasher Algorithms 
 
-==== MD5 ====
+#### MD5 
 
 MD5 is a widely used hash function. It's been used in a variety of security applications and is also commonly used to check the integrity of files. Though, MD5 is not collision resistant, and it isn't suitable for applications like SSL certificates or digital signatures that rely on this property.
 
@@ -27,7 +27,7 @@ MD5 is a widely used hash function. It's been used in a variety of security appl
 </script>
 ```
 
-==== SHA-1 ====
+#### SHA-1
 
 The SHA hash functions were designed by the National Security Agency (NSA). SHA-1 is the most established of the existing SHA hash functions, and it's used in a variety of security applications and protocols. Though, SHA-1's collision resistance has been weakening as new attacks are discovered or improved.
 
@@ -38,7 +38,7 @@ The SHA hash functions were designed by the National Security Agency (NSA). SHA-
 </script>
 ```
 
-==== SHA-256 ====
+#### SHA-256 
 
 SHA-256 is one of the three variants in the SHA-2 set. It isn't as widely used as SHA-1, though it appears to provide much better security.
 
@@ -49,11 +49,11 @@ SHA-256 is one of the three variants in the SHA-2 set. It isn't as widely used a
 </script>
 ```
 
-=== The Hasher Input ===
+### The Hasher Input 
 
 The hash algorithms accept either strings or instances of CryptoJS.lib.WordArray. A WordArray object represents an array of 32-bit words. When you pass a string, it's automatically converted to a WordArray encoded as UTF-8.
 
-=== The Hasher Output ===
+### The Hasher Output 
 
 The hash you get back isn't a string yet. It's a WordArray object. When you use a WordArray object in a string context, it's automatically converted to a hex string.
 
@@ -84,7 +84,7 @@ You can convert a WordArray object to other formats by explicitly calling the to
 </script>
 ```
 
-=== Progressive Hashing ===
+### Progressive Hashing 
 
 ```
 <script src="/svn/tags/3.0-beta1/build/rollups/sha256.js"></script>
@@ -99,7 +99,7 @@ You can convert a WordArray object to other formats by explicitly calling the to
 </script>
 ```
 
-== HMAC ==
+## HMAC 
 
 Keyed-hash message authentication codes (HMAC) is a mechanism for message authentication using cryptographic hash functions.
 
@@ -116,7 +116,7 @@ HMAC can be used in combination with any iterated cryptographic hash function.
 </script>
 ```
 
-=== Progressive HMAC Hashing ===
+### Progressive HMAC Hashing 
 
 ```
 <script src="//svn/tags/3.0-beta1/build/rollups/hmac-sha256.js"></script>
@@ -131,7 +131,7 @@ HMAC can be used in combination with any iterated cryptographic hash function.
 </script>
 ```
 
-== PBKDF2 ==
+## PBKDF2 
 
 PBKDF2 is a password-based key derivation function. In many applications of cryptography, user security is ultimately dependent on a password, and because a password usually can't be used directly as a cryptographic key, some processing is required.
 
@@ -150,11 +150,11 @@ A salt provides a large set of keys for any given password, and an iteration cou
 </script>
 ```
 
-== Ciphers ==
+## Ciphers 
 
-=== The Algorithms ===
+### The Algorithms 
 
-==== AES ====
+#### AES 
 
 The Advanced Encryption Standard (AES) is a U.S. Federal Information Processing Standard (FIPS). It was selected after a 5-year process where 15 competing designs were evaluated.
 
@@ -167,7 +167,7 @@ The Advanced Encryption Standard (AES) is a U.S. Federal Information Processing 
 </script>
 ```
 
-==== DES, Triple DES ====
+#### DES, Triple DES 
 
 DES is a previously dominant algorithm for encryption, and was published as an official Federal Information Processing Standard (FIPS). DES is now considered to be insecure due to the small key size.
 
@@ -191,7 +191,7 @@ Triple DES applies DES three times to each block to increase the key size. The a
 </script>
 ```
 
-==== Rabbit ====
+#### Rabbit 
 
 Rabbit is a high-performance stream cipher and a finalist in the eSTREAM Portfolio. It is one of the four designs selected after a 3 1/2-year process where 22 designs were evaluated.
 
@@ -204,7 +204,7 @@ Rabbit is a high-performance stream cipher and a finalist in the eSTREAM Portfol
 </script>
 ```
 
-==== RC4, RC4Drop ====
+#### RC4, RC4Drop 
 
 RC4 is a widely-used stream cipher. It's used in popular protocols such as SSL and WEP. Although remarkable for its simplicity and speed, the algorithm's history doesn't inspire confidence in its security.
 
@@ -232,7 +232,7 @@ By default, 192 words (768 bytes) are dropped, but you can configure the algorit
 </script>
 ```
 
-=== Custom Key and IV ===
+### Custom Key and IV
 
 ```
 <script src="//svn/tags/3.0-beta1/build/rollups/aes.js"></script>
@@ -244,7 +244,7 @@ By default, 192 words (768 bytes) are dropped, but you can configure the algorit
 </script>
 ```
 
-=== Block Modes and Padding ===
+### Block Modes and Padding
 
 ```
 <script src="//svn/tags/3.0-beta1/build/rollups/aes.js"></script>
@@ -272,7 +272,7 @@ And CryptoJS supports the following padding schemes:
   * ZeroPadding
   * NoPadding
 
-=== The Cipher Input ===
+### The Cipher Input 
 
 For the plaintext message, the cipher algorithms accept either strings or instances of CryptoJS.lib.WordArray.
 
@@ -280,7 +280,7 @@ For the key, when you pass a string, it's treated as a passphrase to derive an a
 
 For the ciphertext, the cipher algorithms accept either strings or instances of CryptoJS.lib.CipherParams. A CipherParams object represents a collection of parameters such as the IV, a salt, and the raw ciphertext itself. When you pass a string, it's automatically converted to a CipherParams object according to a configurable format strategy.
 
-=== The Cipher Output ===
+### The Cipher Output 
 
 The plaintext you get back after decryption is a WordArray object. See Hashers' Output for more detail.
 
@@ -349,7 +349,7 @@ Here's how you might write a JSON formatter:
 </script>
 ```
 
-=== Progressive Ciphering ===
+### Progressive Ciphering 
 
 ```
 <script src="//svn/tags/3.0-beta1/build/rollups/aes.js"></script>
@@ -374,9 +374,9 @@ Here's how you might write a JSON formatter:
 </script>
 ```
 
-=== Interoperability ===
+### Interoperability 
 
-==== With OpenSSL ====
+#### With OpenSSL 
 
 Encrypt with OpenSSL:
 
@@ -393,7 +393,7 @@ Decrypt with CryptoJS:
 </script>
 ```
 
-== Encoders ==
+## Encoders 
 
 CryptoJS can convert from encoding formats such as Base64, Latin1 or Hex to WordArray objects and vica versa.
 
