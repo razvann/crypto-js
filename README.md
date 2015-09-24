@@ -1,11 +1,4 @@
-#labels Deprecated
-I'd love to hear everyone's thoughts before I release the final version. You can write a comment on this page, you can create a new issue, or you can e-mail me directly.
 
-----
-
-<wiki:toc/>
-
-----
 
 = Changes =
 
@@ -27,34 +20,34 @@ I'd love to hear everyone's thoughts before I release the final version. You can
 
 MD5 is a widely used hash function. It's been used in a variety of security applications and is also commonly used to check the integrity of files. Though, MD5 is not collision resistant, and it isn't suitable for applications like SSL certificates or digital signatures that rely on this property.
 
-{{{
-<script src="http://crypto-js.googlecode.com/svn/tags/3.0-beta1/build/rollups/md5.js"></script>
+```
+<script src="/svn/tags/3.0-beta1/build/rollups/md5.js"></script>
 <script>
     var hash = CryptoJS.MD5("Message");
 </script>
-}}}
+```
 
 ==== SHA-1 ====
 
 The SHA hash functions were designed by the National Security Agency (NSA). SHA-1 is the most established of the existing SHA hash functions, and it's used in a variety of security applications and protocols. Though, SHA-1's collision resistance has been weakening as new attacks are discovered or improved.
 
-{{{
-<script src="http://crypto-js.googlecode.com/svn/tags/3.0-beta1/build/rollups/sha1.js"></script>
+```
+<script src="/svn/tags/3.0-beta1/build/rollups/sha1.js"></script>
 <script>
     var hash = CryptoJS.SHA1("Message");
 </script>
-}}}
+```
 
 ==== SHA-256 ====
 
 SHA-256 is one of the three variants in the SHA-2 set. It isn't as widely used as SHA-1, though it appears to provide much better security.
 
-{{{
-<script src="http://crypto-js.googlecode.com/svn/tags/3.0-beta1/build/rollups/sha256.js"></script>
+```
+<script src="/svn/tags/3.0-beta1/build/rollups/sha256.js"></script>
 <script>
     var hash = CryptoJS.SHA256("Message");
 </script>
-}}}
+```
 
 === The Hasher Input ===
 
@@ -64,8 +57,8 @@ The hash algorithms accept either strings or instances of CryptoJS.lib.WordArray
 
 The hash you get back isn't a string yet. It's a WordArray object. When you use a WordArray object in a string context, it's automatically converted to a hex string.
 
-{{{
-<script src="http://crypto-js.googlecode.com/svn/tags/3.0-beta1/build/rollups/sha256.js"></script>
+```
+<script src="/svn/tags/3.0-beta1/build/rollups/sha256.js"></script>
 <script>
     var hash = CryptoJS.SHA256("Message");
 
@@ -73,13 +66,13 @@ The hash you get back isn't a string yet. It's a WordArray object. When you use 
 
     alert(hash); // 2f77668a9dfbf8d5848b9eeb4a7145ca94c6ed9236e4a773f6dcafa5132b2f91
 </script>
-}}}
+```
 
 You can convert a WordArray object to other formats by explicitly calling the toString method and passing an encoder.
 
-{{{
-<script src="http://crypto-js.googlecode.com/svn/tags/3.0-beta1/build/rollups/sha256.js"></script>
-<script src="http://crypto-js.googlecode.com/svn/tags/3.0-beta1/build/components/enc-base64-min.js"></script>
+```
+<script src="/svn/tags/3.0-beta1/build/rollups/sha256.js"></script>
+<script src="/svn/tags/3.0-beta1/build/components/enc-base64-min.js"></script>
 <script>
     var hash = CryptoJS.SHA256("Message");
 
@@ -89,12 +82,12 @@ You can convert a WordArray object to other formats by explicitly calling the to
 
     alert(hash.toString(CryptoJS.enc.Hex)); // 2f77668a9dfbf8d5848b9eeb4a7145ca94c6ed9236e4a773f6dcafa5132b2f91
 </script>
-}}}
+```
 
 === Progressive Hashing ===
 
-{{{
-<script src="http://crypto-js.googlecode.com/svn/tags/3.0-beta1/build/rollups/sha256.js"></script>
+```
+<script src="/svn/tags/3.0-beta1/build/rollups/sha256.js"></script>
 <script>
     var sha256 = CryptoJS.algo.SHA256.create();
 
@@ -104,7 +97,7 @@ You can convert a WordArray object to other formats by explicitly calling the to
 
     var hash = sha256.finalize();
 </script>
-}}}
+```
 
 == HMAC ==
 
@@ -112,21 +105,21 @@ Keyed-hash message authentication codes (HMAC) is a mechanism for message authen
 
 HMAC can be used in combination with any iterated cryptographic hash function.
 
-{{{
-<script src="http://crypto-js.googlecode.com/svn/tags/3.0-beta1/build/rollups/hmac-md5.js"></script>
-<script src="http://crypto-js.googlecode.com/svn/tags/3.0-beta1/build/rollups/hmac-sha1.js"></script>
-<script src="http://crypto-js.googlecode.com/svn/tags/3.0-beta1/build/rollups/hmac-sha256.js"></script>
+```
+<script src="/svn/tags/3.0-beta1/build/rollups/hmac-md5.js"></script>
+<script src="/svn/tags/3.0-beta1/build/rollups/hmac-sha1.js"></script>
+<script src="/svn/tags/3.0-beta1/build/rollups/hmac-sha256.js"></script>
 <script>
     var hash = CryptoJS.HmacMD5("Message", "Secret Passphrase");
     var hash = CryptoJS.HmacSHA1("Message", "Secret Passphrase");
     var hash = CryptoJS.HmacSHA256("Message", "Secret Passphrase");
 </script>
-}}}
+```
 
 === Progressive HMAC Hashing ===
 
-{{{
-<script src="http://crypto-js.googlecode.com/svn/tags/3.0-beta1/build/rollups/hmac-sha256.js"></script>
+```
+<script src="//svn/tags/3.0-beta1/build/rollups/hmac-sha256.js"></script>
 <script>
     var hmac = CryptoJS.algo.HMAC.create(CryptoJS.algo.SHA256, "Secret Passphrase");
 
@@ -136,7 +129,7 @@ HMAC can be used in combination with any iterated cryptographic hash function.
 
     var hash = hmac.finalize();
 </script>
-}}}
+```
 
 == PBKDF2 ==
 
@@ -144,8 +137,8 @@ PBKDF2 is a password-based key derivation function. In many applications of cryp
 
 A salt provides a large set of keys for any given password, and an iteration count increases the cost of producing keys from a password, thereby also increasing the difficulty of attack.
 
-{{{
-<script src="http://crypto-js.googlecode.com/svn/tags/3.0-beta1/build/rollups/pbkdf2.js"></script>
+```
+<script src="//svn/tags/3.0-beta1/build/rollups/pbkdf2.js"></script>
 <script>
     var salt = CryptoJS.lib.WordArray.random(128/8);
 
@@ -155,7 +148,7 @@ A salt provides a large set of keys for any given password, and an iteration cou
 
     var key512Bits1000Iterations = CryptoJS.PBKDF2("Secret Passphrase", salt, { keySize: 512/32, iterations: 1000 });
 </script>
-}}}
+```
 
 == Ciphers ==
 
@@ -165,71 +158,71 @@ A salt provides a large set of keys for any given password, and an iteration cou
 
 The Advanced Encryption Standard (AES) is a U.S. Federal Information Processing Standard (FIPS). It was selected after a 5-year process where 15 competing designs were evaluated.
 
-{{{
-<script src="http://crypto-js.googlecode.com/svn/tags/3.0-beta1/build/rollups/aes.js"></script>
+```
+<script src="//svn/tags/3.0-beta1/build/rollups/aes.js"></script>
 <script>
     var encrypted = CryptoJS.AES.encrypt("Message", "Secret Passphrase");
 
     var decrypted = CryptoJS.AES.decrypt(encrypted, "Secret Passphrase");
 </script>
-}}}
+```
 
 ==== DES, Triple DES ====
 
 DES is a previously dominant algorithm for encryption, and was published as an official Federal Information Processing Standard (FIPS). DES is now considered to be insecure due to the small key size.
 
-{{{
-<script src="http://crypto-js.googlecode.com/svn/tags/3.0-beta1/build/rollups/tripledes.js"></script>
+```
+<script src="//svn/tags/3.0-beta1/build/rollups/tripledes.js"></script>
 <script>
     var encrypted = CryptoJS.DES.encrypt("Message", "Secret Passphrase");
 
     var decrypted = CryptoJS.DES.decrypt(encrypted, "Secret Passphrase");
 </script>
-}}}
+```
 
 Triple DES applies DES three times to each block to increase the key size. The algorithm is believed to be secure in this form.
 
-{{{
-<script src="http://crypto-js.googlecode.com/svn/tags/3.0-beta1/build/rollups/tripledes.js"></script>
+```
+<script src="//svn/tags/3.0-beta1/build/rollups/tripledes.js"></script>
 <script>
     var encrypted = CryptoJS.TripleDES.encrypt("Message", "Secret Passphrase");
 
     var decrypted = CryptoJS.TripleDES.decrypt(encrypted, "Secret Passphrase");
 </script>
-}}}
+```
 
 ==== Rabbit ====
 
 Rabbit is a high-performance stream cipher and a finalist in the eSTREAM Portfolio. It is one of the four designs selected after a 3 1/2-year process where 22 designs were evaluated.
 
-{{{
-<script src="http://crypto-js.googlecode.com/svn/tags/3.0-beta1/build/rollups/rabbit.js"></script>
+```
+<script src="//svn/tags/3.0-beta1/build/rollups/rabbit.js"></script>
 <script>
     var encrypted = CryptoJS.Rabbit.encrypt("Message", "Secret Passphrase");
 
     var decrypted = CryptoJS.Rabbit.decrypt(encrypted, "Secret Passphrase");
 </script>
-}}}
+```
 
 ==== RC4, RC4Drop ====
 
 RC4 is a widely-used stream cipher. It's used in popular protocols such as SSL and WEP. Although remarkable for its simplicity and speed, the algorithm's history doesn't inspire confidence in its security.
 
-{{{
-<script src="http://crypto-js.googlecode.com/svn/tags/3.0-beta1/build/rollups/rc4.js"></script>
+```
+<script src="//svn/tags/3.0-beta1/build/rollups/rc4.js"></script>
 <script>
     var encrypted = CryptoJS.RC4.encrypt("Message", "Secret Passphrase");
 
     var decrypted = CryptoJS.RC4.decrypt(encrypted, "Secret Passphrase");
 </script>
-}}}
+```
 
 It was discovered that the first few bytes of keystream are strongly non-random, and leak information about the key. We can defend against this attack by discarding the initial portion of the keystream. This modified algorithm is traditionally called RC4-drop.
 
 By default, 192 words (768 bytes) are dropped, but you can configure the algorithm to drop any number of words.
 
-{{{
-<script src="http://crypto-js.googlecode.com/svn/tags/3.0-beta1/build/rollups/rc4.js"></script>
+```
+<script src="//svn/tags/3.0-beta1/build/rollups/rc4.js"></script>
 <script>
     var encrypted = CryptoJS.RC4Drop.encrypt("Message", "Secret Passphrase");
 
@@ -237,30 +230,30 @@ By default, 192 words (768 bytes) are dropped, but you can configure the algorit
 
     var decrypted = CryptoJS.RC4Drop.decrypt(encrypted, "Secret Passphrase", { drop: 3072/4 });
 </script>
-}}}
+```
 
 === Custom Key and IV ===
 
-{{{
-<script src="http://crypto-js.googlecode.com/svn/tags/3.0-beta1/build/rollups/aes.js"></script>
+```
+<script src="//svn/tags/3.0-beta1/build/rollups/aes.js"></script>
 <script>
     var key = CryptoJS.enc.Hex.parse('000102030405060708090a0b0c0d0e0f');
     var iv = CryptoJS.enc.Hex.parse('101112131415161718191a1b1c1d1e1f');
 
     var encrypted = CryptoJS.AES.encrypt("Message", key, { iv: iv });
 </script>
-}}}
+```
 
 === Block Modes and Padding ===
 
-{{{
-<script src="http://crypto-js.googlecode.com/svn/tags/3.0-beta1/build/rollups/aes.js"></script>
-<script src="http://crypto-js.googlecode.com/svn/tags/3.0-beta1/build/components/mode-cfb-min.js"></script>
-<script src="http://crypto-js.googlecode.com/svn/tags/3.0-beta1/build/components/pad-ansix923-min.js"></script>
+```
+<script src="//svn/tags/3.0-beta1/build/rollups/aes.js"></script>
+<script src="//svn/tags/3.0-beta1/build/components/mode-cfb-min.js"></script>
+<script src="//svn/tags/3.0-beta1/build/components/pad-ansix923-min.js"></script>
 <script>
     var encrypted = CryptoJS.AES.encrypt("Message", "Secret Passphrase", { mode: CryptoJS.mode.CFB, padding: CryptoJS.pad.AnsiX923 });
 </script>
-}}}
+```
 
 CryptoJS supports the following modes:
 
@@ -293,8 +286,8 @@ The plaintext you get back after decryption is a WordArray object. See Hashers' 
 
 The ciphertext you get back after encryption isn't a string yet. It's a CipherParams object. A CipherParams object gives you access to all the parameters used during encryption. When you use a CipherParams object in a string context, it's automatically converted to a string according to a format strategy. The default is an OpenSSL-compatible format.
 
-{{{
-<script src="http://crypto-js.googlecode.com/svn/tags/3.0-beta1/build/rollups/aes.js"></script>
+```
+<script src="//svn/tags/3.0-beta1/build/rollups/aes.js"></script>
 <script>
     var encrypted = CryptoJS.AES.encrypt("Message", "Secret Passphrase");
 
@@ -305,14 +298,14 @@ The ciphertext you get back after encryption isn't a string yet. It's a CipherPa
 
     alert(encrypted);            // U2FsdGVkX1+iX5Ey7GqLND5UFUoV0b7rUJ2eEvHkYqA=
 </script>
-}}}
+```
 
 You can define your own formats in order to be compatible with other crypto implementations. A format is an object with two methods—stringify and parse—that converts between CipherParams objects and ciphertext strings.
 
 Here's how you might write a JSON formatter:
 
-{{{
-<script src="http://crypto-js.googlecode.com/svn/tags/3.0-beta1/build/rollups/aes.js"></script>
+```
+<script src="//svn/tags/3.0-beta1/build/rollups/aes.js"></script>
 <script>
     var JsonFormatter = {
         stringify: function (cipherParams) {
@@ -354,12 +347,12 @@ Here's how you might write a JSON formatter:
 
     alert(decrypted.toString(CryptoJS.enc.Utf8)); // Message
 </script>
-}}}
+```
 
 === Progressive Ciphering ===
 
-{{{
-<script src="http://crypto-js.googlecode.com/svn/tags/3.0-beta1/build/rollups/aes.js"></script>
+```
+<script src="//svn/tags/3.0-beta1/build/rollups/aes.js"></script>
 <script>
     var key = CryptoJS.enc.Hex.parse('000102030405060708090a0b0c0d0e0f');
     var iv = CryptoJS.enc.Hex.parse('101112131415161718191a1b1c1d1e1f');
@@ -379,7 +372,7 @@ Here's how you might write a JSON formatter:
     var plaintextPart4 = aesDecryptor.process(ciphertextPart4);
     var plaintextPart5 = aesDecryptor.finalize();
 </script>
-}}}
+```
 
 === Interoperability ===
 
@@ -387,27 +380,27 @@ Here's how you might write a JSON formatter:
 
 Encrypt with OpenSSL:
 
-{{{
+```
 openssl enc -aes-256-cbc -in infile -out outfile -pass pass:"Secret Passphrase" -e -base64
-}}}
+```
 
 Decrypt with CryptoJS:
 
-{{{
-<script src="http://crypto-js.googlecode.com/svn/tags/3.0-beta1/build/rollups/aes.js"></script>
+```
+<script src="//svn/tags/3.0-beta1/build/rollups/aes.js"></script>
 <script>
     var decrypted = CryptoJS.AES.decrypt(openSSLEncrypted, "Secret Passphrase");
 </script>
-}}}
+```
 
 == Encoders ==
 
 CryptoJS can convert from encoding formats such as Base64, Latin1 or Hex to WordArray objects and vica versa.
 
-{{{
-<script src="http://crypto-js.googlecode.com/svn/tags/3.0-beta1/build/components/core-min.js"></script>
-<script src="http://crypto-js.googlecode.com/svn/tags/3.0-beta1/build/components/enc-utf16-min.js"></script>
-<script src="http://crypto-js.googlecode.com/svn/tags/3.0-beta1/build/components/enc-base64-min.js"></script>
+```
+<script src="//svn/tags/3.0-beta1/build/components/core-min.js"></script>
+<script src="//svn/tags/3.0-beta1/build/components/enc-utf16-min.js"></script>
+<script src="//svn/tags/3.0-beta1/build/components/enc-base64-min.js"></script>
 <script>
     var words = CryptoJS.enc.Base64.parse('SGVsbG8sIFdvcmxkIQ==');
     var base64 = CryptoJS.enc.Base64.stringify(words);
@@ -424,4 +417,4 @@ CryptoJS can convert from encoding formats such as Base64, Latin1 or Hex to Word
     var words = CryptoJS.enc.Utf16.parse('Hello, World!');
     var utf16 = CryptoJS.enc.Utf16.stringify(words);
 </script>
-}}}
+```
